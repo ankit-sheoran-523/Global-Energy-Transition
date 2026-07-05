@@ -27,20 +27,17 @@ To prevent performance lag, looping relationship chains, and many-to-many filter
 
 ```
 
-              +--------------------------------+
-              |         Dim_Calendar           |
-              |     (True Date Data Type)      |
-              +---------------+----------------+
-                              |
-                              | 1:N Join
-                              v
-
-+------------------+     +--------+-------+     +--------------------+
-|  Dim_Geography   |1:N  |  Fact_Energy_  | N:1 | Dim_Energy_Source  |
-| (Sanitized Text) +---->|  Annual_Core   |<----+  (Strict Fuel Mix  |
-+------------------+     +----------------+     |   Classifications) |
-+--------------------+
-
+                      +--------------------------------+
+                      |         Dim_Calendar           |
+                      |     (True Date Data Type)      |
+                      +---------------+----------------+
+                                      |
+                                      | 1:N Join
+                                      v
+    +------------------+     +--------+-------+     +--------------------+
+    |  Dim_Geography   |1:N  |  Fact_Energy_  | N:1 | Dim_Energy_Source  |
+    | (Sanitized Text) +---->|  Annual_Core   |<----+  (Strict Fuel Mix  |
+    +------------------+     +----------------+     |   Classifications) |
 
 ```
 * **`Fact_Energy_Annual_Core`:** The central transaction engine holding absolute generation numbers, consumption volumes, and emission metrics.
@@ -48,17 +45,16 @@ To prevent performance lag, looping relationship chains, and many-to-many filter
 * **`Dim_Calendar`:** A continuous calendar ledger driving context-independent time intelligence.
 * **`Dim_Energy_Source`:** Strict mapping tables organizing power assets directly into Fossil, Nuclear, and isolated Renewable branches.
 
-```
----
-
 
 ## Comprehensive DAX Metrics Library
 
 The solution uses custom Data Analysis Expressions (DAX) to enable advanced analytical capabilities on every dashboard page:
 
 ### Page 1: Macro Global Transition Baseline
+
 * **Total Grid Consumption:** Summates macro consumption across the database layout.
-  ```dax
+
+```dax
   Total_Consumption_TWh = SUM('Fact_Energy_Annual_Core'[Consumption_Volume])
 
 ```
@@ -197,6 +193,3 @@ RETURN IF(NOT(ISBLANK(StartValue)) && StartValue > 0, IFERROR((CurrentValue / St
 
 * **Analytical Engine:** Advanced DAX library mapping economic metrics ($kWh/\$1\text{B GDP}$) alongside grid cleanliness benchmarks ($\text{gCO}_2\text{e/kWh}$).
 
-
-
-```
