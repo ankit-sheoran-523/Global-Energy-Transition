@@ -1,4 +1,3 @@
-
 # Global Energy Transition BI Engine
 
 An enterprise-grade, automated Business Intelligence solution built to process millions of rows of historical energy, emissions, and economic records spanning from 1970 through the mid-2020s[cite: 5]. This repository showcases the complete data architecture lifecycle: migrating noisy, siloed flat-file tables into a heavily optimized **Star Schema Data Model** and deploying a three-page interactive performance monitoring ecosystem[cite: 5].
