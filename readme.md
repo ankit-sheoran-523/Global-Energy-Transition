@@ -5,7 +5,7 @@ An enterprise-grade, automated Business Intelligence solution built to process m
 ---
 
 ## The Core Technical Challenge
-Organizations and policymakers currently operate in an analytical blind spot due to the fragmented nature of global energy tracking. Transition datasets are split across isolated operational layers—grid-level production volumes, international greenhouse gas logs, and fluctuating macroeconomic indicators (GDP, population).
+Organizations and policymakers currently operate in an analytical blind spot due to the fragmented nature of global energy tracking. Transition datasets are split across isolated operational layers grid-level production volumes, international greenhouse gas logs, and fluctuating macroeconomic indicators (GDP, population).
 
 This project creates an automated, unified **Single Source of Truth** to:
 1. **Model the Decoupling Thesis:** Mathematically isolate whether industrialized nations are successfully breaking the historical dependency loop between rising GDP and rising carbon footprints.
