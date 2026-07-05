@@ -1,16 +1,16 @@
 # Global Energy Transition BI Engine
 
-An enterprise-grade, automated Business Intelligence solution built to process millions of rows of historical energy, emissions, and economic records spanning from 1970 through the mid-2020s[cite: 5]. This repository showcases the complete data architecture lifecycle: migrating noisy, siloed flat-file tables into a heavily optimized **Star Schema Data Model** and deploying a three-page interactive performance monitoring ecosystem[cite: 5].
+An enterprise-grade, automated Business Intelligence solution built to process millions of rows of historical energy, emissions, and economic records spanning from 1970 through the mid-2020s. This repository showcases the complete data architecture lifecycle: migrating noisy, siloed flat-file tables into a heavily optimized **Star Schema Data Model** and deploying a three-page interactive performance monitoring ecosystem.
 
 ---
 
 ## The Core Technical Challenge
-Organizations and policymakers currently operate in an analytical blind spot due to the fragmented nature of global energy tracking[cite: 5]. Transition datasets are split across isolated operational layers—grid-level production volumes, international greenhouse gas logs, and fluctuating macroeconomic indicators (GDP, population)[cite: 5].
+Organizations and policymakers currently operate in an analytical blind spot due to the fragmented nature of global energy tracking. Transition datasets are split across isolated operational layers—grid-level production volumes, international greenhouse gas logs, and fluctuating macroeconomic indicators (GDP, population).
 
-This project creates an automated, unified **Single Source of Truth**[cite: 5] to:
-1. **Model the Decoupling Thesis:** Mathematically isolate whether industrialized nations are successfully breaking the historical dependency loop between rising GDP and rising carbon footprints[cite: 5].
-2. **Benchmark Geopolitical Velocity:** Separate real structural infrastructure overhauls from transient climate anomalies or natural market shifts[cite: 5].
-3. **Audit Progress Against 2030 Mandates:** Track running performance metrics directly against international climate targets using interactive, non-breaking visuals[cite: 5].
+This project creates an automated, unified **Single Source of Truth** to:
+1. **Model the Decoupling Thesis:** Mathematically isolate whether industrialized nations are successfully breaking the historical dependency loop between rising GDP and rising carbon footprints.
+2. **Benchmark Geopolitical Velocity:** Separate real structural infrastructure overhauls from transient climate anomalies or natural market shifts.
+3. **Audit Progress Against 2030 Mandates:** Track running performance metrics directly against international climate targets using interactive, non-breaking visuals.
 
 ---
 
@@ -18,16 +18,15 @@ This project creates an automated, unified **Single Source of Truth**[cite: 5] t
 
 ### 1. Ingestion & Power Query Ingestion Pipeline (M-Code)
 * **Live Folder Ingestion:** Established programmatic folder links pointing directly to transactional data dumps[cite: 2]. This enables any subsequent annual CSV updates to automatically transform and self-load without manual copy-pasting[cite: 2].
-* **Scale Normalization:** Handled extreme unit fragmentation across multi-source outputs, dynamically mapping all generation lines into a singular, cohesive base scale: **Terawatt-hours (TWh)**[cite: 5].
-* **Macro Imputation:** Standardized economic data points down to base billion-dollar scales ($1B USD) to protect numeric precision during advanced divisions and gracefully handle early historical null rows[cite: 5].
+* **Scale Normalization:** Handled extreme unit fragmentation across multi-source outputs, dynamically mapping all generation lines into a singular, cohesive base scale: **Terawatt-hours (TWh)**.
+* **Macro Imputation:** Standardized economic data points down to base billion-dollar scales ($1B USD) to protect numeric precision during advanced divisions and gracefully handle early historical null rows.
 
 ### 2. High-Performance Relational Star Schema
-To prevent performance lag, looping relationship chains, and many-to-many filtering traps, the data backend was built into an optimized **Star Schema** configuration[cite: 5]:
+To prevent performance lag, looping relationship chains, and many-to-many filtering traps, the data backend was built into an optimized **Star Schema** configuration:
 
 
 ```
 
-```
               +--------------------------------+
               |         Dim_Calendar           |
               |     (True Date Data Type)      |
@@ -35,8 +34,6 @@ To prevent performance lag, looping relationship chains, and many-to-many filter
                               |
                               | 1:N Join
                               v
-
-```
 
 +------------------+     +--------+-------+     +--------------------+
 |  Dim_Geography   |1:N  |  Fact_Energy_  | N:1 | Dim_Energy_Source  |
@@ -46,10 +43,10 @@ To prevent performance lag, looping relationship chains, and many-to-many filter
 
 
 ```
-* **`Fact_Energy_Annual_Core`:** The central transaction engine holding absolute generation numbers, consumption volumes, and emission metrics[cite: 5].
-* **`Dim_Geography`:** Standardized entity dimension holding sanitized regional lookup codes[cite: 5].
-* **`Dim_Calendar`:** A continuous calendar ledger driving context-independent time intelligence[cite: 5].
-* **`Dim_Energy_Source`:** Strict mapping tables organizing power assets directly into Fossil, Nuclear, and isolated Renewable branches[cite: 5].
+* **`Fact_Energy_Annual_Core`:** The central transaction engine holding absolute generation numbers, consumption volumes, and emission metrics.
+* **`Dim_Geography`:** Standardized entity dimension holding sanitized regional lookup codes.
+* **`Dim_Calendar`:** A continuous calendar ledger driving context-independent time intelligence.
+* **`Dim_Energy_Source`:** Strict mapping tables organizing power assets directly into Fossil, Nuclear, and isolated Renewable branches.
 
 ```
 ---
@@ -57,10 +54,10 @@ To prevent performance lag, looping relationship chains, and many-to-many filter
 
 ## Comprehensive DAX Metrics Library
 
-The solution uses custom Data Analysis Expressions (DAX) to enable advanced analytical capabilities on every dashboard page[cite: 5]:
+The solution uses custom Data Analysis Expressions (DAX) to enable advanced analytical capabilities on every dashboard page:
 
 ### Page 1: Macro Global Transition Baseline
-* **Total Grid Consumption:** Summates macro consumption across the database layout[cite: 5].
+* **Total Grid Consumption:** Summates macro consumption across the database layout.
   ```dax
   Total_Consumption_TWh = SUM('Fact_Energy_Annual_Core'[Consumption_Volume])
 
